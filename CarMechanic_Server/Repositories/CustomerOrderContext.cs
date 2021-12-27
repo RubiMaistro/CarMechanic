@@ -8,13 +8,13 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace CarMechanic_Server.Repositories
 {
-    public class ClientContext : DbContext
+    public class CustomerOrderContext : DbContext
     {
-        public ClientContext([NotNull]DbContextOptions options)
+        public CustomerOrderContext([NotNull]DbContextOptions<CustomerOrderContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Client> Client { get; set; }
+        public DbSet<CustomerOrder> Orders { get; set; }
     }
 }
