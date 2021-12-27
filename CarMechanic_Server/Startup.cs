@@ -28,7 +28,7 @@ namespace CarMechanic_Server
         {
 
             services.AddControllers();
-            services.AddDbContext<ClientContext>(options =>
+            services.AddDbContext<CustomerOrderContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CarRepairMechanicDb"))); 
         }
 

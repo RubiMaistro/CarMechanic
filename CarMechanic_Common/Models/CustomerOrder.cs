@@ -13,7 +13,7 @@ namespace CarMechanic_Common.Models
         InProgress,
         Finished
     }
-    public class Client
+    public class CustomerOrder
     {
         [Key]
         public long Id { get; set; }

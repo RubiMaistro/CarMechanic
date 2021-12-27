@@ -10,22 +10,22 @@ namespace CarMechanic_Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClientController : Controller
+    public class CustomerOrderController : Controller
     {
         [HttpGet]
-        public ActionResult<IEnumerable<Client>> Get()
+        public ActionResult<IEnumerable<CustomerOrder>> Get()
         {
             return Ok("Show the Client Objects");
         }
 
         [HttpGet]
-        public ActionResult<Client> Get(long id)
+        public ActionResult<CustomerOrder> Get(long id)
         {
             return Ok("Show a Client Object");
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]Client client)
+        public ActionResult Post([FromBody] CustomerOrder client)
         {
             return Ok();
         }

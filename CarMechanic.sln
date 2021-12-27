@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanic_Server", "CarMechanic_Server\CarMechanic_Server.csproj", "{CC7E8ADE-E902-44C0-A519-5F17B58FA656}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanicWorkshop_Server", "CarMechanic_Server\CarMechanicWorkshop_Server.csproj", "{CC7E8ADE-E902-44C0-A519-5F17B58FA656}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanic_Common", "CarMechanic_Common\CarMechanic_Common.csproj", "{50B12245-5F9D-4704-9945-1D56F5EFEA62}"
 EndProject
