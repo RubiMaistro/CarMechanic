@@ -10,11 +10,12 @@ namespace CarMechanic_Server.Repositories
 {
     public class CustomerOrderContext : DbContext
     {
-        public CustomerOrderContext([NotNull]DbContextOptions<CustomerOrderContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<CustomerOrder> Orders { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(
+                "Data Source=(localdb)\\mssqllocaldb;Database=CarRepairMechanicDb;Integrated Security=True;");
+        } 
     }
 }
