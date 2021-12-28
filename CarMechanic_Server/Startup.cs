@@ -28,8 +28,6 @@ namespace CarMechanic_Server
         {
 
             services.AddControllers();
-            services.AddDbContext<CustomerOrderContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("CarRepairMechanicDb"))); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
