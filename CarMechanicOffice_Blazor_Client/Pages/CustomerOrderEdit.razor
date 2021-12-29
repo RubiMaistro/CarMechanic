@@ -1,0 +1,10 @@
+﻿@page "/order/{CustomerOrderId}/edit"
+
+@if (CustomerOrder == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <CustomerOrderForm ButtonTitle="Edit Order" SubmitForm="@EditCustomerOrder" CustomerOrder="@CustomerOrder"></CustomerOrderForm>
+}

@@ -1,0 +1,67 @@
+﻿@page "/order/{CustomerOrderId}"
+
+@if (CustomerOrder == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Owner First Name</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.FirstName</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Owner Last name</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.LastName</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Car Model</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarModel</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Car Licence Plate Number</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarLicencePlateNumber</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Problem</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarProblemDescription</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Order Date and Time</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.DateTime</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Status</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.WorkStatus</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <NavLink class="nav-link" href="customerorders">
+            <span class="oi oi-arrow-left" aria-hidden="true"></span> Go Back
+        </NavLink>
+
+        <button type="button" class="btn btn-danger" @onclick="@DeleteCustomerOrder">Delete</button>
+    </div>
+
+}
+

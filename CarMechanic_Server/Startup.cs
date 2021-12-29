@@ -26,7 +26,7 @@ namespace CarMechanic_Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers();
         }
 
@@ -37,6 +37,8 @@ namespace CarMechanic_Server
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 
