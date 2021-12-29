@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarMechanicOffice_Client"
         mc:Ignorable="d"
-        Title="Order Information" Height="330" Width="400">
+        Title="Order Information" Height="330" Width="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>

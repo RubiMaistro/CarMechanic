@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -100,11 +101,15 @@ namespace CarMechanicOffice_Client
 
         private bool ValidateCustomerOrder()
         {
-            // TODO: plate number format validation and whitespace validation
-
             if (string.IsNullOrEmpty(FirstNameTextBox.Text))
             {
                 MessageBox.Show("First name should not be empty.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(FirstNameTextBox.Text, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("First name must contain only letters.");
                 return false;
             }
 
@@ -114,15 +119,33 @@ namespace CarMechanicOffice_Client
                 return false;
             }
 
+            if (!Regex.IsMatch(LastNameTextBox.Text, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Last name must contain only letters.");
+                return false;
+            }
+
             if (string.IsNullOrEmpty(ModelTextBox.Text))
             {
                 MessageBox.Show("Car model should not be empty.");
                 return false;
             }
 
+            if (!Regex.IsMatch(ModelTextBox.Text, @"^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("Model name must contain only letters and numbers.");
+                return false;
+            }
+
             if (string.IsNullOrEmpty(PlateNumberModelTextBox.Text))
             {
                 MessageBox.Show("Licence plate number should not be empty.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(PlateNumberModelTextBox.Text, @"^[A-Z]{1,3}-[0-9]{1,3}$"))
+            {
+                MessageBox.Show("Licence plate number must follow the given pattern: (XXX-000)");
                 return false;
             }
 

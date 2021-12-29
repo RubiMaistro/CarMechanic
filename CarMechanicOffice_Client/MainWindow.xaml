@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarMechanicOffice_Client"
         mc:Ignorable="d"
-        Title="Order Manager" Height="450" Width="800">
+        Title="Order Manager" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -13,11 +14,37 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Orders" FontWeight="Bold" FontSize="16" Margin="15, 15, 15, 0"/>
+        <Label Grid.Row="0" Content="Orders" FontWeight="Bold" FontSize="20" Margin="15, 15, 15, 0"/>
 
-        <ListBox x:Name="OrdersListBox" Grid.Row="1" Margin="15" SelectionMode="Single" SelectionChanged="List_SelectionChanged"/>
 
-        <Button Grid.Row="0" Content="New Order" Width="100" HorizontalAlignment="Right" Margin="15, 15, 15, 0" Click="AddOrder_Click"/>
+        <DataGrid x:Name="OrdersDataGrid" Grid.Row="1" Margin="15" SelectionMode="Single" SelectionChanged="List_SelectionChanged" FontSize="16" AutoGenerateColumns="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
 
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Model" Binding="{Binding CarModel}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Plate Number" Binding="{Binding CarLicencePlateNumber}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Problem" Binding="{Binding CarProblemDescription}" Width="*" CanUserSort="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" Binding="{Binding WorkStatus}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Grid.Row="0" Content="ASC" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="ASC_Click"/>
+                <Button Grid.Row="0" Content="DESC" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="DESC_Click"/>
+                <Button Grid.Row="0" Content="New Order" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="AddOrder_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
