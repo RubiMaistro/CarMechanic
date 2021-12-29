@@ -1,0 +1,38 @@
+﻿@page "/customerorders"
+
+<h1>CustomerOrderList</h1>
+
+@if (Orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Owner First Name</th>
+                <th>Owner Last Name</th>
+                <th>Car Model</th>
+                <th>Car Licence Plate Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Orders)
+            {
+            <tr>
+                <td>@order.FirstName</td>
+                <td>@order.LastName</td>
+                <td>@order.CarModel</td>
+                <td>@order.CarLicencePlateNumber</td>
+                <td>
+                    <a href="@($"order/{order.Id}")">Info</a>
+                </td>
+                <td>
+                    <a href="@($"order/{order.Id}/edit")">Edit</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

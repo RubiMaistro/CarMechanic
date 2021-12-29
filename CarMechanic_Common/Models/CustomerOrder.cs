@@ -19,21 +19,30 @@ namespace CarMechanic_Common.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
+
         [Required]
-        [MaxLength(30)]
+        [MaxLength(30, ErrorMessage = "Your First Name can contain only 30 characters")]
         public string FirstName { get; set; }
+
         [Required]
-        [MaxLength(30)]
+        [MaxLength(30, ErrorMessage = "Your Last Name can contain only 30 characters")]
         public string LastName { get; set; }
+
         [Required]
-        [MaxLength(40)]
+        [MaxLength(40, ErrorMessage = "Your Car Model can contain only 40 characters")]
         public string CarModel { get; set; }
+
         [Required]
-        [MaxLength(10)]
+        [MaxLength(10, ErrorMessage = "Car Licence Plate Number can contain only 10 characters")]
         public string CarLicencePlateNumber { get; set; }
+
         [Required]
-        [MaxLength(255)]
+        [MaxLength(255, ErrorMessage = "Problem Description can contain only 255 characters")]
         public string CarProblemDescription { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime DateTime { get; set; }
+
         [Required]
         public CarWorkStatus WorkStatus { get; set; }
 
