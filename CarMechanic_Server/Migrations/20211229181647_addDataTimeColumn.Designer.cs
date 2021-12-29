@@ -4,14 +4,16 @@ using CarMechanic_Server.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarMechanicWorkshop_Server.Migrations
 {
     [DbContext(typeof(CustomerOrderContext))]
-    partial class CustomerOrderContextModelSnapshot : ModelSnapshot
+    [Migration("20211229181647_addDataTimeColumn")]
+    partial class addDataTimeColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
