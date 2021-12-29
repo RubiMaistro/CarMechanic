@@ -39,7 +39,7 @@ namespace CarMechanic_Common.Models
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} - {CarModel} ({CarLicencePlateNumber}): {CarProblemDescription}";
+            return $"{FirstName} {LastName} - {CarModel} ({CarLicencePlateNumber}): {CarProblemDescription} - {WorkStatus}";
         }
     }
 }
