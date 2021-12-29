@@ -32,6 +32,7 @@
                 <DataGridTextColumn Header="Plate Number" Binding="{Binding CarLicencePlateNumber}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Problem" Binding="{Binding CarProblemDescription}" Width="*" CanUserSort="False"></DataGridTextColumn>
                 <DataGridTextColumn Header="Status" Binding="{Binding WorkStatus}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Created at" Binding="{Binding DateTime}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="0">
@@ -41,8 +42,6 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Grid.Row="0" Content="ASC" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="ASC_Click"/>
-                <Button Grid.Row="0" Content="DESC" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="DESC_Click"/>
                 <Button Grid.Row="0" Content="New Order" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="AddOrder_Click"/>
             </StackPanel>
         </Grid>

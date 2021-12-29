@@ -39,8 +39,7 @@ namespace CarMechanicOffice_Client
                 DescriptionModelTextBox.Text = _order.CarProblemDescription;
 
                 CreateButton.Visibility = Visibility.Collapsed;
-                UpdateButton.Visibility = Visibility.Visible;
-                DeleteButton.Visibility = Visibility.Visible;
+
             }
             else
             {
@@ -49,6 +48,8 @@ namespace CarMechanicOffice_Client
                 CreateButton.Visibility = Visibility.Visible;
                 UpdateButton.Visibility = Visibility.Collapsed;
                 DeleteButton.Visibility = Visibility.Collapsed;
+                editableCheckBox.Visibility = Visibility.Collapsed;
+                editableCheckBox.IsChecked = true;
             }
 
         }
@@ -63,6 +64,7 @@ namespace CarMechanicOffice_Client
                 _order.CarLicencePlateNumber = PlateNumberModelTextBox.Text;
                 _order.CarProblemDescription = DescriptionModelTextBox.Text;
                 _order.WorkStatus = CarWorkStatus.Recorded;
+                _order.DateTime = DateTime.Now;
 
                 CustomerOrderDataProvider.CreateCustomerOrder(_order);
 
