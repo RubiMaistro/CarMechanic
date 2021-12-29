@@ -26,7 +26,7 @@ namespace CarMechanicOffice_Client
         {
             InitializeComponent();
 
-            UpdatedDescOrdersListBox();
+            UpdatedOrdersListBox();
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs args)
@@ -38,7 +38,7 @@ namespace CarMechanicOffice_Client
                 var window = new OrderWindow(selectedOrder);
                 if (window.ShowDialog() ?? false)
                 {
-                    UpdatedDescOrdersListBox();
+                    UpdatedOrdersListBox();
                 }
 
                 OrdersDataGrid.UnselectAll();
@@ -51,29 +51,13 @@ namespace CarMechanicOffice_Client
             var window = new OrderWindow(null);
             if (window.ShowDialog() ?? false)
             {
-                UpdatedDescOrdersListBox();
+                UpdatedOrdersListBox();
             }
         }
 
-        private void ASC_Click(object sender, RoutedEventArgs args)
+        private void UpdatedOrdersListBox()
         {
-            UpdatedAscOrdersListBox();
-        }
-
-        private void DESC_Click(object sender, RoutedEventArgs args)
-        {
-            UpdatedDescOrdersListBox();
-        }
-
-        private void UpdatedDescOrdersListBox()
-        {
-            var orders = CustomerOrderDataProvider.GetCustomerOrders().ToArray().Reverse();
-            OrdersDataGrid.ItemsSource = orders;
-        }
-
-        private void UpdatedAscOrdersListBox()
-        {
-            var orders = CustomerOrderDataProvider.GetCustomerOrders().ToArray();
+            var orders = CustomerOrderDataProvider.GetCustomerOrders().ToList();
             OrdersDataGrid.ItemsSource = orders;
         }
     }
