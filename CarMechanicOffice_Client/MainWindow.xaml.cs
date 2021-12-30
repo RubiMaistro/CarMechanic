@@ -25,21 +25,23 @@ namespace CarMechanicOffice_Client
         public MainWindow()
         {
             InitializeComponent();
+
+            UpdatedOrdersListBox();
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs args)
         {
-            var selectedOrder = OrdersListBox.SelectedItem as CustomerOrder;
+            var selectedOrder = OrdersDataGrid.SelectedItem as CustomerOrder;
 
             if (selectedOrder != null)
             {
                 var window = new OrderWindow(selectedOrder);
                 if (window.ShowDialog() ?? false)
                 {
-                    UpdateOrdersListBox();
+                    UpdatedOrdersListBox();
                 }
 
-                OrdersListBox.UnselectAll();
+                OrdersDataGrid.UnselectAll();
             }
 
         }
@@ -49,14 +51,14 @@ namespace CarMechanicOffice_Client
             var window = new OrderWindow(null);
             if (window.ShowDialog() ?? false)
             {
-                UpdateOrdersListBox();
+                UpdatedOrdersListBox();
             }
         }
 
-        private void UpdateOrdersListBox()
+        private void UpdatedOrdersListBox()
         {
             var orders = CustomerOrderDataProvider.GetCustomerOrders().ToList();
-            OrdersListBox.ItemsSource = orders;
+            OrdersDataGrid.ItemsSource = orders;
         }
     }
 }

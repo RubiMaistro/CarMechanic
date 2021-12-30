@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarMechanicOffice_Client"
         mc:Ignorable="d"
-        Title="Order Information" Height="330" Width="400">
+        Title="Order Information" Height="330" Width="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -27,25 +28,145 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Content="First Name" Margin="10"/>
-            <TextBox x:Name="FirstNameTextBox" Grid.Column="1" Grid.Row="0" Margin="10" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="FirstNameTextBox" Grid.Column="1" Grid.Row="0" Margin="10" VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "True"/>
+                                <Setter Property = "TextBox.Background" Value = "WhiteSmoke"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "False"/>
+                                <Setter Property = "TextBox.Background" Value = "White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <Label Grid.Column="0" Grid.Row="1" Content="Last Name" Margin="10"/>
-            <TextBox x:Name="LastNameTextBox" Grid.Column="1" Grid.Row="1" Margin="10" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="LastNameTextBox" Grid.Column="1" Grid.Row="1" Margin="10" VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "True"/>
+                                <Setter Property = "TextBox.Background" Value = "WhiteSmoke"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "False"/>
+                                <Setter Property = "TextBox.Background" Value = "White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <Label Grid.Column="0" Grid.Row="2" Content="Model" Margin="10"/>
-            <TextBox x:Name="ModelTextBox" Grid.Column="1" Grid.Row="2" Margin="10" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="ModelTextBox" Grid.Column="1" Grid.Row="2" Margin="10" VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "True"/>
+                                <Setter Property = "TextBox.Background" Value = "WhiteSmoke"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "False"/>
+                                <Setter Property = "TextBox.Background" Value = "White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <Label Grid.Column="0" Grid.Row="3" Content="Plate Number" Margin="10"/>
-            <TextBox x:Name="PlateNumberModelTextBox" Grid.Column="1" Grid.Row="3" Margin="10" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="PlateNumberModelTextBox" Grid.Column="1" Grid.Row="3" Margin="10" VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "True"/>
+                                <Setter Property = "TextBox.Background" Value = "WhiteSmoke"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "False"/>
+                                <Setter Property = "TextBox.Background" Value = "White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <Label Grid.Column="0" Grid.Row="4" Content="Description" Margin="10"/>
-            <TextBox x:Name="DescriptionModelTextBox" Grid.Column="1" Grid.Row="4" Margin="10" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="DescriptionModelTextBox" Grid.Column="1" Grid.Row="4" Margin="10" VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "True"/>
+                                <Setter Property = "TextBox.Background" Value = "WhiteSmoke"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "TextBox.IsReadOnly" Value = "False"/>
+                                <Setter Property = "TextBox.Background" Value = "White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
         </Grid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <CheckBox x:Name = "editableCheckBox" Content = "Editable" Margin = "20">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="1.3" ScaleY="1.3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
             <Button x:Name="CreateButton" Content="Create" Width="80" Margin="10" Click="CreateButton_Click"/>
-            <Button x:Name="UpdateButton" Content="Update" Width="80" Margin="10" Click="UpdateButton_Click"/>
-            <Button x:Name="DeleteButton" Content="Delete" Width="80" Margin="10" Click="DeleteButton_Click"/>
+            <Button x:Name="UpdateButton" Content="Update" Width="80" Margin="10" Click="UpdateButton_Click">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "Button.Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "Button.Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="DeleteButton" Content="Delete" Width="80" Margin="10" Click="DeleteButton_Click">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "false">
+                                <Setter Property = "Button.Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding = "{Binding ElementName = editableCheckBox, Path = IsChecked}" 
+                                Value = "true">
+                                <Setter Property = "Button.Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
         
     </Grid>
