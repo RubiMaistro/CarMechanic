@@ -28,10 +28,5 @@ namespace CarMechanicOffice_Blazor_Client.Pages
             await base.OnInitializedAsync();
         }
 
-        private async Task DeleteCustomerOrder()
-        {
-            await HttpClient.DeleteAsync($"customerorder/{CustomerOrderId}");
-            NavigationManager.NavigateTo("customerorders");
-        }
     }
 }

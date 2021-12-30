@@ -27,9 +27,14 @@ namespace CarMechanicOffice_Blazor_Client.Pages
 
         private async Task EditCustomerOrder()
         {
-            CustomerOrder.DateTime = System.DateTime.Now;
             await HttpClient.PutAsJsonAsync($"customerorder/{CustomerOrderId}", CustomerOrder);
             NavigationManager.NavigateTo($"order/{CustomerOrderId}");
+        }
+
+        private async Task DeleteCustomerOrder()
+        {
+            await HttpClient.DeleteAsync($"customerorder/{CustomerOrderId}");
+            NavigationManager.NavigateTo("customerorders");
         }
     }
 }
