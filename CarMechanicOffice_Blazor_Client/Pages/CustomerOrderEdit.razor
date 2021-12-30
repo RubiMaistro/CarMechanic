@@ -1,5 +1,14 @@
 ﻿@page "/order/{CustomerOrderId}/edit"
 
+<style>
+    .page-title {
+        text-align: center;
+        margin-bottom: 1.2em;
+    }
+</style>
+
+<h1 class="page-title">Customer Order Editing Manager</h1>
+
 @if (CustomerOrder == null)
 {
     <p><em>Loading...</em></p>
@@ -7,4 +16,5 @@
 else
 {
     <CustomerOrderForm ButtonTitle="Edit Order" SubmitForm="@EditCustomerOrder" CustomerOrder="@CustomerOrder"></CustomerOrderForm>
+    <button type="button" class="btn btn-danger mt-2" @onclick="@DeleteCustomerOrder">Delete</button>
 }

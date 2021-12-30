@@ -1,3 +1,12 @@
 ﻿@page "/add"
 
+<style>
+    .page-title {
+        text-align: center;
+        margin-bottom: 1.2em;
+    }
+</style>
+
+<h1 class="page-title">Customer Order Adding Manager</h1>
+
 <CustomerOrderForm ButtonTitle="Add Order" SubmitForm="@AddNewCustomerOrder" CustomerOrder="@CustomerOrder"></CustomerOrderForm>
