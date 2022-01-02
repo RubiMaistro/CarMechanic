@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CarMechanicOffice_Client
+namespace CarMechanicRepair_Client
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -44,15 +44,6 @@ namespace CarMechanicOffice_Client
                 OrdersDataGrid.UnselectAll();
             }
 
-        }
-
-        private void AddOrder_Click(object sender, RoutedEventArgs args)
-        {
-            var window = new OrderWindow(null);
-            if (window.ShowDialog() ?? false)
-            {
-                UpdatedOrdersListBox();
-            }
         }
 
         private void UpdatedOrdersListBox()
