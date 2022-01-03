@@ -1,0 +1,70 @@
+﻿@page "/customerorders"
+
+<style>
+    .page-title {
+        text-align: center;
+        margin-bottom: 1.2em;
+    }
+</style>
+
+<h1 class="page-title">Customer Order List</h1>
+
+@if (Orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .sort-link {
+            cursor: pointer;
+        }
+
+        .fa {
+            margin-left: 5px;
+        }
+    </style>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="sort-link" @onclick="@(() => @SortTable("CarModel"))">
+                    Car Model
+                    <span class="fa @SetSortIcon("CarModel")"></span>
+                </th>
+                <th class="sort-link" @onclick="@(() => @SortTable("CarLicencePlateNumber"))">
+                    Plate Number
+                    <span class="fa @SetSortIcon("CarLicencePlateNumber")"></span>
+                </th>
+                <th class="sort-link" @onclick="@(() => @SortTable("DateTime"))">
+                    Recorded Date
+                    <span class="fa @SetSortIcon("DateTime")"></span>
+                </th>
+                <th class="sort-link" @onclick="@(() => @SortTable("WorkStatus"))">
+                    Work Status
+                    <span class="fa @SetSortIcon("WorkStatus")"></span>
+                </th>
+                <th class="sort-link" @onclick="@(() => @SortTable("CarProblemDescription"))">
+                    Problem
+                    <span class="fa @SetSortIcon("CarProblemDescription")"></span>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Orders)
+            {
+            <tr>
+                <td>@order.CarModel</td>
+                <td>@order.CarLicencePlateNumber</td>
+                <td>@order.DateTime</td>
+                <td>@order.WorkStatus</td>
+                <td>@order.CarProblemDescription</td>
+                <td>
+                    <a href="@($"order/{order.Id}")">Info</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
