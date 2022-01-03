@@ -1,5 +1,5 @@
-﻿using CarMechanic_Common.Models;
-using CarMechanicOffice_Client.DataProviders;
+﻿using CarMechanic_Common.DataProviders;
+using CarMechanic_Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +32,7 @@ namespace CarMechanicOffice_Client
             {
                 _order = order;
 
-                FirstNameTextBox.Text = _order.FirstName; 
+                FirstNameTextBox.Text = _order.FirstName;
                 LastNameTextBox.Text = _order.LastName;
                 ModelTextBox.Text = _order.CarModel;
                 PlateNumberModelTextBox.Text = _order.CarLicencePlateNumber;

@@ -1,9 +1,9 @@
-﻿<Window x:Class="CarMechanicOffice_Client.MainWindow"
+﻿<Window x:Class="CarMechanicRepair_Client.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarMechanicOffice_Client"
+        xmlns:local="clr-namespace:CarMechanicRepair_Client"
         mc:Ignorable="d"
         Title="Order Manager" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen">
@@ -26,22 +26,12 @@
             </DataGrid.ColumnHeaderStyle>
 
             <DataGrid.Columns >
-                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Model" Binding="{Binding CarModel}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Plate Number" Binding="{Binding CarLicencePlateNumber}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Created at" Binding="{Binding DateTime}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Model" Binding="{Binding CarModel}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Plate Number" Binding="{Binding CarLicencePlateNumber}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" Binding="{Binding WorkStatus}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Created at" Binding="{Binding DateTime}" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="Problem" Binding="{Binding CarProblemDescription}" Width="*" CanUserSort="False"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Grid.Row="0" Content="New Order" Height="30" Width="100" VerticalAlignment="Center" Margin="15, 15, 15, 0" Click="AddOrder_Click"/>
-            </StackPanel>
-        </Grid>
     </Grid>
 </Window>

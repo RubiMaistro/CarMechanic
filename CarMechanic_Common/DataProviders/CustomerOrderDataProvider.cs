@@ -7,9 +7,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarMechanicOffice_Client.DataProviders
+namespace CarMechanic_Common.DataProviders
 {
-    class CustomerOrderDataProvider
+    public class CustomerOrderDataProvider
     {
         private const string _url = "http://localhost:5000/api/customerorder";
 
