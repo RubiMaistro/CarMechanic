@@ -1,27 +1,44 @@
 ﻿<EditForm Model="@CustomerOrder" OnValidSubmit="@SubmitForm">
+    <DataAnnotationsValidator/>
+
     <div class="form-group row">
         <label for="firstname" class="col-sm-3">Owner First Name</label>
-        <InputText id="firstname" class="form-control col-sm-8" @bind-Value="@CustomerOrder.FirstName" placeholder="Enter first name"></InputText>
+        <div class="col-sm-6">
+            <InputText id="firstname" class="form-control" @bind-Value="@CustomerOrder.FirstName" placeholder="Enter first name"></InputText>
+            <ValidationMessage For="() => CustomerOrder.FirstName"/>
+        </div>
     </div>
 
     <div class="form-group row">
         <label for="lastname" class="col-sm-3">Owner Last Name</label>
-        <InputText id="lastname" class="form-control col-sm-8" @bind-Value="@CustomerOrder.LastName" placeholder="Enter last name"></InputText>
+        <div class="col-sm-6">
+            <InputText id="lastname" class="form-control" @bind-Value="@CustomerOrder.LastName" placeholder="Enter last name"></InputText>
+            <ValidationMessage For="() => CustomerOrder.LastName"/>
+        </div>
     </div>
 
     <div class="form-group row">
         <label for="carmodel" class="col-sm-3">Car Model</label>
-        <InputText id="carmodel" class="form-control col-sm-8" @bind-Value="@CustomerOrder.CarModel" placeholder="Enter car model"></InputText>
+        <div class="col-sm-6">
+            <InputText id="carmodel" class="form-control" @bind-Value="@CustomerOrder.CarModel" placeholder="Enter car model"></InputText>
+            <ValidationMessage For="() => CustomerOrder.CarModel"/>
+        </div>
     </div>
 
     <div class="form-group row">
         <label for="plate_number" class="col-sm-3">Car Licence Plate Number</label>
-        <InputText id="plate_number" class="form-control col-sm-8" @bind-Value="@CustomerOrder.CarLicencePlateNumber" placeholder="Enter car licence plate number"></InputText>
+        <div class="col-sm-6">
+            <InputText id="plate_number" class="form-control" @bind-Value="@CustomerOrder.CarLicencePlateNumber" placeholder="Enter car licence plate number"></InputText>
+            <ValidationMessage For="() => CustomerOrder.CarLicencePlateNumber"/>
+        </div>
     </div>
 
     <div class="form-group row">
         <label for="problem_description" class="col-sm-3">Problem Description</label>
-        <InputText id="problem_description" class="form-control col-sm-8" @bind-Value="@CustomerOrder.CarProblemDescription" placeholder="Enter car problem description"></InputText>
+        <div class="col-sm-6">
+            <InputText id="problem_description" class="form-control" @bind-Value="@CustomerOrder.CarProblemDescription" placeholder="Enter car problem description"></InputText>
+            <ValidationMessage For="() => CustomerOrder.CarProblemDescription"/>
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">@ButtonTitle</button>
