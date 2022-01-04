@@ -1,4 +1,4 @@
-﻿using CarMechanicOffice_Blazor_Client.Models;
+﻿using CarMechanic_Common.Models;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;

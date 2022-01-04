@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicOffice_Blazor_Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanicRepair_Client", "CarMechanicRepair_Client\CarMechanicRepair_Client.csproj", "{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicRepair_Blazor_Client", "CarMechanicRepair_Blazor_Client\CarMechanicRepair_Blazor_Client.csproj", "{78E3763B-17F4-4013-9859-497AFD588A44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
