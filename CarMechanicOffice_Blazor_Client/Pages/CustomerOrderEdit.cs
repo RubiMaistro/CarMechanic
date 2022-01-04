@@ -2,7 +2,7 @@
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using CarMechanicOffice_Blazor_Client.Models;
+using CarMechanic_Common.Models;
 
 namespace CarMechanicOffice_Blazor_Client.Pages
 {
