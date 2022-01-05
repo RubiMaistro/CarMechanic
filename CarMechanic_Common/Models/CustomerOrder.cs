@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarMechanic_Common.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarMechanic_Common.Models
 {
-    public class CustomerOrder
+    public class CustomerOrder : PropertyValidateModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -35,7 +36,7 @@ namespace CarMechanic_Common.Models
         public string CarLicencePlateNumber { get; set; }
 
         [Required]
-        [RegularExpression("^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z]))|(?<marks>([.!?]))){10,255}$",
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z0-9]))((?<alphachars>[A-Za-z0-9])|(?<specialchars>[A-Za-z0-9]['-,](?=[A-Za-z0-9]))|(?<spaces> (?=[A-Za-z0-9]))|(?<marks>([.!?,]))){10,255}$",
             ErrorMessage = "Problem Description can contain only letters and numbers. Minimum 10 and maximum 255 characters.")]
         public string CarProblemDescription { get; set; }
 
