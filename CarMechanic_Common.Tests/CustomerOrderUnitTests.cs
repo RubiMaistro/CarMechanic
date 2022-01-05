@@ -12,7 +12,7 @@ namespace CarMechanic_Common.Tests
         [DataRow("Test FirstName", "Test LastName", "Test Model", "AAA-111", "Test Problem")]
         [DataRow("Elon", "Musk", "Tesla Model S", "TSL-005", "Tire replacement required")]
         [TestMethod]
-        public void validateCustomerOrder_WithValidArgument_ValidCustomerOrder
+        public void validateFirstName_WithValidArguments_ValidCustomerOrder
             (string firstName, string lastName, string carModel, string plateNumber, string problem)
         {
             // Arrange
@@ -29,7 +29,7 @@ namespace CarMechanic_Common.Tests
 
         [DataRow(null, "Test LastName", "Test Model", "AAA-111", "Test Problem")]
         [TestMethod]
-        public void validateCustomerOrder_FirstNameIsNull_ExpectOneValidationError
+        public void validateFirstName_WithNullArgument_ExpectOneValidationError
             (string firstName, string lastName, string carModel, string plateNumber, string problem)
         {
             // Arrange
@@ -40,21 +40,38 @@ namespace CarMechanic_Common.Tests
             var results = validator.Validate(order);
 
             // Assert
-            Assert.IsNull(order.FirstName);
-            Assert.AreEqual(results.Count, 1);
+            Assert.IsNull(order.FirstName, results[0].ErrorMessage);
+            Assert.AreEqual(results.Count, 1, results[0].ErrorMessage);
             Assert.AreEqual("The FirstName field is required.", results[0].ErrorMessage);
+        }
+
+        [DataRow("FirstName", "LastName", "Model", "AAA-111", "Test Problem")]
+        [TestMethod]
+        public void validateCarProblemDescription_Exceeds_255_Characters_ExpectError
+            (string firstName, string lastName, string carModel, string plateNumber, string problem)
+        {
+            // Arrange
+            var validator = new ValidationModelHelper();
+            var order = CreateCustomerOrder(firstName, lastName, carModel, plateNumber, new string('c',256));
+
+            // Act
+            var results = validator.Validate(order);
+
+            // Assert
+            Assert.AreEqual(results.Count, 1, results[0].ErrorMessage);
+            Assert.AreEqual(results[0].ErrorMessage, 
+                "Problem Description can contain only letters and numbers. Minimum 10 and maximum 255 characters.");
         }
 
         [DataRow("12345", "Last", "Model", "AAA-111", "Problem")]
         [DataRow("First", "1234", "Model", "AAA-111", "Problem")]
-        [DataRow("First", "Last", "?$'", "AAA-111", "Problem")]
+        [DataRow("First", "Last", "?$#_'", "AAA-111", "Problem")]
         [DataRow("First", "Last", "Model", "000-111", "Problem")]
         [DataRow("First", "Last", "Model", "222-AAA", "Problem")]
         [DataRow("First", "Last", "Model", "abc-333", "Problem")]
-        [DataRow("First", "Last", "Model", "AAA-333", "What is the problem?!")]
-        [DataRow("12345", "1234", "!!!!!", "abc-4de", "What is the problem?! $$$%")]
-        //[TestMethod]
-        public void validateCustomerOrder_WithInvalidArgument_InvalidCustomerOrder
+        [DataRow("12345", "1234", "!!!!!", "abc-4de", "What is the problem?! $$#%")]
+        [TestMethod]
+        public void validateCustomerOrder_WithInvalidArguments_InvalidCustomerOrder
             (string firstName, string lastName, string carModel, string plateNumber, string problem)
         {
             // Arrange
@@ -65,7 +82,7 @@ namespace CarMechanic_Common.Tests
             var results = CheckValidation.Validate(order);
 
             // Assert
-            Assert.IsTrue(results.Count > 0);
+            Assert.IsTrue(results.Count > 0, results[0].ErrorMessage);
         }
 
         private CustomerOrder CreateCustomerOrder
