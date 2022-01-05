@@ -8,12 +8,6 @@ using System.Threading.Tasks;
 
 namespace CarMechanic_Common.Models
 {
-    public enum CarWorkStatus
-    { 
-        Recorded,
-        InProgress,
-        Finished
-    }
     public class CustomerOrder
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,29 +15,33 @@ namespace CarMechanic_Common.Models
         public long Id { get; set; }
 
         [Required]
-        [MaxLength(30, ErrorMessage = "Your First Name can contain only 30 characters")]
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<spaces> (?=[A-Za-z]))){1,29}$",
+            ErrorMessage = "Your First Name can contain only letters. Length cannot more than 30 characters")]
         public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(30, ErrorMessage = "Your Last Name can contain only 30 characters")]
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<spaces> (?=[A-Za-z]))){1,29}$",
+            ErrorMessage = "Your Last Name can contain only letters. Length cannot more than 30 characters")]
         public string LastName { get; set; }
 
         [Required]
-        [MaxLength(40, ErrorMessage = "Your Car Model can contain only 40 characters")]
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z0-9])|(?<spaces> (?=[A-Za-z0-9]))){1,49}$",
+            ErrorMessage = "Your Car Model can contain only letters and digits. Length cannot more than 50 characters")]
         public string CarModel { get; set; }
 
         [Required]
-        [MaxLength(10, ErrorMessage = "Car Licence Plate Number can contain only 10 characters")]
+        [RegularExpression(@"^[A-Z]{1,3}-[0-9]{1,3}$",
+            ErrorMessage = "Licence plate number must follow the given pattern: (XXX-000)")]
         public string CarLicencePlateNumber { get; set; }
 
         [Required]
-        [MaxLength(255, ErrorMessage = "Problem Description can contain only 255 characters")]
+        [RegularExpression("^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z]))|(?<marks>([.!?]))){10,255}$",
+            ErrorMessage = "Problem Description can contain only letters and numbers. Minimum 10 and maximum 255 characters.")]
         public string CarProblemDescription { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime DateTime { get; set; }
 
-        [Required]
         public CarWorkStatus WorkStatus { get; set; }
 
         public override string ToString()

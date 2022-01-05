@@ -1,4 +1,4 @@
-﻿using CarMechanicOffice_Blazor_Client.Models;
+﻿using CarMechanic_Common.Models;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -28,10 +28,5 @@ namespace CarMechanicOffice_Blazor_Client.Pages
             await base.OnInitializedAsync();
         }
 
-        private async Task DeleteCustomerOrder()
-        {
-            await HttpClient.DeleteAsync($"customerorder/{CustomerOrderId}");
-            NavigationManager.NavigateTo("customerorders");
-        }
     }
 }

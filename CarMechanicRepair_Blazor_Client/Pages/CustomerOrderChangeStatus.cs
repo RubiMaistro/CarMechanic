@@ -1,12 +1,15 @@
-﻿using System.Net.Http;
+﻿using CarMechanic_Common.Models;
+using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using CarMechanic_Common.Models;
 
-namespace CarMechanicOffice_Blazor_Client.Pages
+namespace CarMechanicRepair_Blazor_Client.Pages
 {
-    public partial class CustomerOrderEdit
+    public partial class CustomerOrderChangeStatus
     {
         [Inject]
         public HttpClient HttpClient { get; set; }
@@ -17,6 +20,8 @@ namespace CarMechanicOffice_Blazor_Client.Pages
         [Parameter]
         public string CustomerOrderId { get; set; }
 
+        public List<CarWorkStatus> CarWorkStatusList = Enum.GetValues(typeof(CarWorkStatus)).Cast<CarWorkStatus>().ToList();
+
         public CustomerOrder CustomerOrder { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -25,16 +30,11 @@ namespace CarMechanicOffice_Blazor_Client.Pages
             await base.OnInitializedAsync();
         }
 
-        private async Task EditCustomerOrder()
+        private async Task ChangeStatus()
         {
             await HttpClient.PutAsJsonAsync($"customerorder/{CustomerOrderId}", CustomerOrder);
-            NavigationManager.NavigateTo($"order/{CustomerOrderId}");
+            NavigationManager.NavigateTo($"customerorders");
         }
 
-        private async Task DeleteCustomerOrder()
-        {
-            await HttpClient.DeleteAsync($"customerorder/{CustomerOrderId}");
-            NavigationManager.NavigateTo("customerorders");
-        }
     }
 }

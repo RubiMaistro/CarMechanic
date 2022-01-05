@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicOffice_Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicOffice_Blazor_Client", "CarMechanicOffice_Blazor_Client\CarMechanicOffice_Blazor_Client.csproj", "{C117FDDD-048F-4748-9BEB-FBB5125AF8CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanicRepair_Client", "CarMechanicRepair_Client\CarMechanicRepair_Client.csproj", "{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicRepair_Client", "CarMechanicRepair_Client\CarMechanicRepair_Client.csproj", "{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMechanicRepair_Blazor_Client", "CarMechanicRepair_Blazor_Client\CarMechanicRepair_Blazor_Client.csproj", "{78E3763B-17F4-4013-9859-497AFD588A44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMechanic_Common.Tests", "CarMechanic_Common.Tests\CarMechanic_Common.Tests.csproj", "{6BEBD2BD-72D2-462D-95EC-CA8BE53E7D6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DDE3F48-3806-43CA-B8FF-17543AD12BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E3763B-17F4-4013-9859-497AFD588A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BEBD2BD-72D2-462D-95EC-CA8BE53E7D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BEBD2BD-72D2-462D-95EC-CA8BE53E7D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BEBD2BD-72D2-462D-95EC-CA8BE53E7D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BEBD2BD-72D2-462D-95EC-CA8BE53E7D6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

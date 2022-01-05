@@ -1,0 +1,16 @@
+﻿.main-title {
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.welcome-text {
+    font-size: x-large;
+    margin-bottom: 0.5em;
+    padding: 5em;
+}

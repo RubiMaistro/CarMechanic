@@ -1,0 +1,87 @@
+﻿@page "/order/{CustomerOrderId}"
+
+<style>
+    .main-title {
+        text-align: left;
+        margin-bottom: 1.2em;
+    }
+</style>
+
+<h1 class="row main-title">
+    Customer Order Details
+    <NavLink class="ml-auto mr-4 nav-link" href="customerorders">
+        Go Back
+        <span class="oi oi-arrow-right" aria-hidden="true"></span>
+    </NavLink>
+</h1>
+
+
+@if (CustomerOrder == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Owner First Name</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.FirstName</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Owner Last name</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.LastName</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Car Model</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarModel</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Car Licence Plate Number</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarLicencePlateNumber</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Problem</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.CarProblemDescription</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Order Date and Time</label>
+        <div class="col-sm-8">
+            <label type="text" class="form-control-plaintext">@CustomerOrder.DateTime</label>
+        </div>
+    </div>
+
+    <EditForm Model="@CustomerOrder" OnValidSubmit="@ChangeStatus">
+        <div class="form-group row">
+            <label for="status" class="col-sm-3">
+                Work Status
+            </label>
+            <div class="col-sm-8">
+                <InputSelect @bind-Value="CustomerOrder.WorkStatus" class="form-control">
+                    @foreach (var status in CarWorkStatusList)
+                        {
+                        <option value="@status">@status</option>
+                        }
+                </InputSelect>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </EditForm>
+
+}
+
