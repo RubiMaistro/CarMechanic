@@ -44,13 +44,26 @@ This project is simple Client-Server Application. Created for a customer office 
 ```
 $ git clone "repository_name"
 ```
-
+- **Install with NuGet in Visual Studio:**
+  - Microsoft.EntityFrameworkCore 5.0.13
+  - Microsoft.EntityFrameworkCore.SqlServer 5.0.13
+  - Microsoft.EntityFrameworkCore.Tools 5.0.13
+  - Microsoft.AspNetCore.Components.WebAssembly 5.0.13
+  - Microsoft.AspNetCore.Components.WebAssembly.DevServer 5.0.13
+  - System.Net.Http.Json 5.0.0
+  - Fody 6.6.0
+  - PropertyChanged.Fody 3.4.0
+  - coverlet.collector 3.0.2
+  - Newtonsoft.Json 13.0.1
+  - MSTest.TestAdapter 2.2.3
+  - MSTest.TestFramework 2.2.3
 
 ## Using
-
 - In Visual Studio or VSC
-- Or, if you prefer, in CMD
-
+- First of all you should execute for the database in package manager
+```
+Update-Database
+```
 
 ## Unit testing
 
