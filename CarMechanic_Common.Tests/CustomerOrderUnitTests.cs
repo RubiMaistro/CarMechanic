@@ -12,7 +12,7 @@ namespace CarMechanic_Common.Tests
         [DataRow("Test FirstName", "Test LastName", "Test Model", "AAA-111", "Test Problem")]
         [DataRow("Elon", "Musk", "Tesla Model S", "TSL-005", "Tire replacement required")]
         [TestMethod]
-        public void validateFirstName_WithValidArguments_ValidCustomerOrder
+        public void validateCustomerOrder_WithValidArguments_ValidCustomerOrder
             (string firstName, string lastName, string carModel, string plateNumber, string problem)
         {
             // Arrange
