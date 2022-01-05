@@ -2,7 +2,7 @@
 
 
 ## Table of contents
------
+
 ### **Coding**
 - [ **General info** ](#general-info)
 - [ **Technologies** ](#technologies)
@@ -16,7 +16,7 @@
 
 
 ## General info
------ 
+
 ### **Description**
 This project is simple Client-Server Application. Created for a customer office and car mechanic workshop. You can record, store and select a car repair order.
 
@@ -27,7 +27,7 @@ This project is simple Client-Server Application. Created for a customer office 
 
 
 ## Technologies
------
+
 ### **Project is created with:**
 * C# 
 * .NET 5.0 
@@ -40,32 +40,32 @@ This project is simple Client-Server Application. Created for a customer office 
 
 
 ## Install
------
+
 ```
 $ git clone "repository_name"
 ```
 
 
 ## Using
------
+
 - In Visual Studio or VSC
 - Or, if you prefer, in CMD
 
 
 ## Unit testing
------
+
 - Unit testing with MSTest
 - Testing database Model validation
 
 
 ## Server
------
+
 - This is a simple WEB API with CRUD operations
 - Data stored in local MSSQL
 
 
 ## Office Client
------
+
 ### **Description**
 This client application deployed in a Car Repair Ordering Office. An ordering clerk can record and store car repair order for incoming customers
 
@@ -79,7 +79,7 @@ This client application deployed in a Car Repair Ordering Office. An ordering cl
 
 
 ## Repair Client
------
+
 ### **Description**
 This client application deployed in Car Repair Workshop. A mechanic can change the status of car repair order 
 
@@ -89,3 +89,4 @@ This client application deployed in Car Repair Workshop. A mechanic can change t
 ### **Functions:**
 - Listing the stored repair orders
 - Changing status of repair order
+- 
