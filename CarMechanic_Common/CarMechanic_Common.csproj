@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Validator\" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
   </ItemGroup>
 
 </Project>

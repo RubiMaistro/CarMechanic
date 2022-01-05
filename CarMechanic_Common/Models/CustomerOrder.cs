@@ -42,7 +42,6 @@ namespace CarMechanic_Common.Models
         [DataType(DataType.Date)]
         public DateTime DateTime { get; set; }
 
-        [Required]
         public CarWorkStatus WorkStatus { get; set; }
 
         public override string ToString()
