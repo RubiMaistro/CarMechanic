@@ -109,7 +109,7 @@ namespace CarMechanicOffice_Client
                 return false;
             }
 
-            if (!Regex.IsMatch(FirstNameTextBox.Text, @"^[a-zA-Z]+$"))
+            if (!Regex.IsMatch(FirstNameTextBox.Text, @"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<spaces> (?=[A-Za-z]))){1,29}$"))
             {
                 MessageBox.Show("First name must contain only letters.");
                 return false;
@@ -121,7 +121,7 @@ namespace CarMechanicOffice_Client
                 return false;
             }
 
-            if (!Regex.IsMatch(LastNameTextBox.Text, @"^[a-zA-Z]+$"))
+            if (!Regex.IsMatch(LastNameTextBox.Text, @"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<spaces> (?=[A-Za-z]))){1,29}$"))
             {
                 MessageBox.Show("Last name must contain only letters.");
                 return false;
@@ -133,7 +133,7 @@ namespace CarMechanicOffice_Client
                 return false;
             }
 
-            if (!Regex.IsMatch(ModelTextBox.Text, @"^[a-zA-Z0-9]+$"))
+            if (!Regex.IsMatch(ModelTextBox.Text, @"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z0-9])|(?<spaces> (?=[A-Za-z0-9]))){1,49}$"))
             {
                 MessageBox.Show("Model name must contain only letters and numbers.");
                 return false;
@@ -154,6 +154,12 @@ namespace CarMechanicOffice_Client
             if (string.IsNullOrEmpty(DescriptionModelTextBox.Text))
             {
                 MessageBox.Show("Problem description should not be empty.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(DescriptionModelTextBox.Text, @"^(?<firstchar>(?=[A-Za-z0-9]))((?<alphachars>[A-Za-z0-9])|(?<specialchars>[A-Za-z0-9]['-,](?=[A-Za-z0-9]))|(?<spaces> (?=[A-Za-z0-9]))|(?<marks>([.!?,]))){10,255}$"))
+            {
+                MessageBox.Show("Problem Description can contain only letters and numbers. Minimum 10 and maximum 255 characters.");
                 return false;
             }
 
